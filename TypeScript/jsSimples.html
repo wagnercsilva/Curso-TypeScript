@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<body>
+			<script>
+				/*var endereco = {
+				 rua: "Rua dos pinheiros",
+				 numero: 1293,
+				 bairro: "Centro",
+				 cidade: "São Paulo",
+				 uf: "SP"
+				};
+				
+				console.log('O usuário mora em ' + [endereco.cidade] + ', no bairro ' + [endereco.bairro] + ', na rua' + [endereco.rua] +' com nº ' + [endereco.numero])
+				
+				function pares(x, y) {
+				 while(x <= y){
+					if(x % 2 == 0){
+						console.log(x);
+					}
+					x++;
+				 }
+				}
+				pares(32, 321);
+				
+				
+				function temHabilidade(skills) {
+				 var retorno = skills.indexOf('Javascript') == 0 ? true : false;
+				 
+				 return retorno;
+
+				}
+				
+				var skills = ["Javascript", "ReactJS", "React Native"];
+					
+					if(temHabilidade(skills)){
+						alert("Tem");
+					}else{
+						alert("Não Tem");
+					}
+				*/
+				
+				var usuarios = [
+				 {
+				 nome: "Diego",
+				 habilidades: ["Javascript", "ReactJS", "Redux"]
+				 },
+				 {
+				 nome: "Gabriel",
+				 habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+				 }
+				];
+				
+				for(let nomes of usuarios){
+					console.log('O Usuario ' + [nomes.nome] + ' Possui as Seguintes Habilidades ' + [nomes.habilidades])
+				}
+
+								
+			</script>
+		</body>
+	</head>
+</html>
