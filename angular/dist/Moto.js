@@ -22,6 +22,10 @@ var Moto = /** @class */ (function (_super) {
     function Moto() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    //sobrescrita de metodos herdados
+    Moto.prototype.acelerar = function () {
+        this.velocidade = this.velocidade + 20;
+    };
     return Moto;
 }(Veiculo_1.default));
 exports.default = Moto;
