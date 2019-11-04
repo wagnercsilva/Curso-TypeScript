@@ -1,32 +1,32 @@
 import { DaoInterface } from './DaoInterface'
 import Concessionaria from './Concessionaria'
 
-export class ConcessionariaDao implements DaoInterface {
+export class ConcessionariaDao<T> implements DaoInterface<T> {
     
     nomeTabela: string = 'tb_concessionaria'
 
-    inserir(object: Concessionaria): boolean {
+    inserir(object: T): boolean {
         console.log('lógica de insert')
         return true
     }
 
-    atualizar(object: Concessionaria): boolean {
+    atualizar(object: T): boolean {
         console.log('lógica update')
         return true
     }
 
-    remover(id: number): Concessionaria {
+    remover(id: number): T {
         console.log('lógica delete')
-        return new Concessionaria('', [])
+        return Object()
     }
 
-    selecionar(id: number): Concessionaria {
+    selecionar(id: number): T {
         console.log('lógica select')
-        return new Concessionaria('', []);
+        return Object()
     }
 
-    selecionarTodos(): [any] {
+    selecionarTodos(): [T] {
         console.log('lógica getAll') 
-        return [new Concessionaria('', [])]
+        return [Object()]
     }
 }

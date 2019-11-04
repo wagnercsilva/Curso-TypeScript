@@ -1,9 +1,7 @@
-import { DaoInterface } from './DaoInterface'
-import Pessoa from './Pessoa'
+import { DaoInterface } from "./DaoInterface";
 
-export class PessoaDao<T> implements DaoInterface<T> {
-    
-    nomeTabela: string = 'tb_pessoa'
+export class Dao<T> implements DaoInterface<T>{
+    nomeTabela: string = ''
 
     inserir(object: T): boolean {
         console.log('lógica de insert')
