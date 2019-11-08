@@ -33,10 +33,20 @@ export class PainelComponent implements OnInit {
     //trocar pergunta da rodada
     if(this.resposta.toUpperCase() == this.rodadaFrase.frasePtBr.toUpperCase()){
       this.rodada++
-      this.atualizaRodada()      
       this.progresso = this.progresso + (100 / this.frases.length)
+
+      if(this.rodada === 4){
+        alert('Parabéns, Voce Venceu')
+      }
+
+      this.atualizaRodada()          
+      
     }else{
-      alert('Erroooooo!')
+      this.tentativas--
+
+      if(this.tentativas === -1){
+        alert('Game Over')
+      }
     }
    
   }
@@ -45,5 +55,7 @@ export class PainelComponent implements OnInit {
     this.rodadaFrase = this.frases[this.rodada]
     this.resposta = ''
   }
+
+  public tentativas: number = 3
 
 }
