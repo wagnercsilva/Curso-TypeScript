@@ -11,7 +11,8 @@ export class PainelComponent implements OnInit {
   public vlProduto: string = ''
   public vlTaxa: string = ''
   public vlFrete: string = ''
-  @Input() public vlFinal: number
+  public vlFinal: number = 0
+  public vlDolar: number
 
   cotacao: Array<any>;
 
@@ -23,17 +24,20 @@ export class PainelComponent implements OnInit {
   }
 
   consultarDolar(){
-    //filtrar retorno api pegando somente a propriedade USD/bid
     this.cotacaoService.listar().subscribe(dados => this.cotacao = dados);
   }
 
   calcular(){
-    this.vlFinal = (Number(this.vlProduto) + Number(this.vlProduto) * 0.06)
+    this.vlDolar = this.cotacao['USD']['bid'];
+
+    this.vlFinal = ( (Number(this.vlProduto) + Number(this.vlProduto) * 0.06)
     + Number(this.vlTaxa)
-    + Number(this.vlFrete)
+    + Number(this.vlFrete) )  * Number(JSON.stringify(this.vlDolar).substring(1,5).replace(',', '.'));
+ 
+    this.vlFinal = parseFloat(this.vlFinal.toFixed(2));
   }
 
-  public obterValorProduto(vlProduto: Event): void{
+  public obterValorProduto(vlProduto: Event, vlTaxa: Event): void{
     this.vlProduto = (<HTMLInputElement>vlProduto.target).value
     this.calcular()
   }
