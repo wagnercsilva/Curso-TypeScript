@@ -2,10 +2,14 @@
 
     <div style="text-align:center">
       <img alt="Logo" src="../assets/LOGOAssinatura.png">
-    </div>
-  
+    </div>   
+    
+
+    Valor Dólar Atual: <label > {{cotacao?.USD.bid | slice:0:4}}</label>
+
     <form>
       <div class="form-group">
+          <br>
         <label>Valor Produto(USD)</label>
         <input (input)="obterValorProduto($event)" [value]="vlProduto" class="form-control" id="vlProduto"  placeholder="Digite o valor do produto">
         <br>
@@ -17,8 +21,6 @@
       </div>
       
       <br>
-      Valor Final Cliente (BRL): <label > {{vlFinal}}</label>
-  
-  
+      Valor Final Cliente (BRL): <label > {{vlFinal}}</label>  
     </form>
   </div>

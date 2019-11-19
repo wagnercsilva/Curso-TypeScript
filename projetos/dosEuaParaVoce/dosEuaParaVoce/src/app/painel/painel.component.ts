@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CotacaoService } from '../cotacao.service';
 
 @Component({
   selector: 'app-painel',
@@ -12,14 +13,22 @@ export class PainelComponent implements OnInit {
   public vlFrete: string = ''
   @Input() public vlFinal: number
 
-  constructor() {
+  cotacao: Array<any>;
+
+  constructor(private cotacaoService: CotacaoService) {
    }
 
   ngOnInit() {
+    this.consultarDolar();
+  }
+
+  consultarDolar(){
+    //filtrar retorno api pegando somente a propriedade USD/bid
+    this.cotacaoService.listar().subscribe(dados => this.cotacao = dados);
   }
 
   calcular(){
-    this.vlFinal = (Number(this.vlProduto) * 4  + Number(this.vlProduto) * 0.06)
+    this.vlFinal = (Number(this.vlProduto) + Number(this.vlProduto) * 0.06)
     + Number(this.vlTaxa)
     + Number(this.vlFrete)
   }

@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PainelComponent } from './painel/painel.component';
+import { CotacaoService } from './cotacao.service'
+
+import { HttpClientModule } from '@angular/common/http'
 
 
 
@@ -13,9 +16,10 @@ import { PainelComponent } from './painel/painel.component';
     PainelComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ CotacaoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
