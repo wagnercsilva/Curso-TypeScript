@@ -16,6 +16,10 @@ export class OfertaService {
         //efetua requisicao http e retorna promise Oferta[]
         return this.http.get('http://localhost:3000/ofertas?destaque=true')
         .toPromise()
+        .then(
+            response => {
+                return response
+            })
     }
     
 
