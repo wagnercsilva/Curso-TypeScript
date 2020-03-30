@@ -1,22 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
-import { HomeComponent } from './home/home.component';
-import { RodapeComponent } from './rodape/rodape.component';
+import { PainelComponent } from './painel/painel.component';
+import { TentativasComponent } from './tentativas/tentativas.component';
+import { ProgressoComponent } from './progresso/progresso.component'
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
-    HomeComponent,
-    RodapeComponent
+    PainelComponent,
+    TentativasComponent,
+    ProgressoComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [HttpClientModule],
