@@ -2,7 +2,7 @@ import { Oferta } from './shared/oferta.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {Observable} from 'rxjs';
+import { URL_API } from './app.api'
 
 //import 'rxjs/add/operator/toPromise' 
 
@@ -14,11 +14,48 @@ export class OfertaService {
     
     public getOfertas(): Promise<any> {
         //efetua requisicao http e retorna promise Oferta[]
-        return this.http.get('http://localhost:3000/ofertas?destaque=true')
+        return this.http.get(`${URL_API}/ofertas?destaque=true`)
         .toPromise()
         .then(
             response => {
                 return response
+            })
+    }
+
+    public getOfertasPorCategoria(categoria: string): Promise<any> {
+        //efetua requisicao http e retorna promise Oferta[]
+        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)
+        .toPromise()
+        .then(
+            response => {
+                return response
+            })
+    }
+
+    public getOfertaPorId(id: number): Promise<any> {
+        return this.http.get(`${URL_API}/ofertas?id=${id}`)
+        .toPromise()
+        .then(
+            response => {
+                return response[0]
+            })
+    }
+
+    public getComoUsarOfertaPorId(id: number): Promise<string> {
+        return this.http.get(`${URL_API}/como-usar?id=${id}`)
+        .toPromise()
+        .then(
+            response => {
+                return response[0].descricao
+            })
+    }
+
+    public getOndeFicaOfertaPorId(id: number): Promise<string> {
+        return this.http.get(`${URL_API}/onde-fica?id=${id}`)
+        .toPromise()
+        .then(
+            response => {
+                return response[0].descricao
             })
     }
     
